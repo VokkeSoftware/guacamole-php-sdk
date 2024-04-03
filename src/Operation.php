@@ -16,7 +16,7 @@ class Operation
 	 *
 	 * @var string
 	 */
-	private $apiPrefix = '/api';
+	private $apiPrefix = '/guacamole/api';
 
 	/**
      * Guzzle HTTP client
