@@ -106,15 +106,8 @@ class Connection
 		]);
 	}
 
-	public function createSsh(string $name, string $hostname, string $username, string $password, int $port = 22, array $attributes = []) {
+	public function createSsh(string $name, array $params, array $attributes = []) {
 		$endpoint = '/session/data/' . $this->dataSource . '/connections';
-
-		$params = [
-			'hostname'  => $hostname,
-			'username'  => $username,
-			'port' 	 	=> $port,
-			'password' 	=> $password,
-		];
 
 		return $this->operation->request('POST', $endpoint, [
 			'json' => [
