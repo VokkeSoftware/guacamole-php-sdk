@@ -88,13 +88,8 @@ class Connection
 		return $res === '' ? [] : $res;
 	}
 
-	public function createVnc(string $name, string $password, int $port = 5901, array $parameters = [], array $attributes = []) {
+	public function createVnc(string $name, array $params, array $attributes = []) {
 		$endpoint = '/session/data/' . $this->dataSource . '/connections';
-
-		$params = array_merge($parameters, [
-			'port' 	 	=> $port,
-			'password' 	=> $password,
-		]);
 
 		return $this->operation->request('POST', $endpoint, [
 			'json' => [
