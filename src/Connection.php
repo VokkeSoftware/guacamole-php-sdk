@@ -114,14 +114,9 @@ class Connection
 		]);
 	}
 
-	public function createRdp(string $name, string $hostname, int $port = 3389, array $parameters = [], array $attributes = []) {
+	public function createRdp(string $name, array $params, array $attributes = []) {
 		$endpoint = '/session/data/' . $this->dataSource . '/connections';
-
-		$params = array_merge($parameters, [
-			'port' 	 	=> $port,
-			'hostname' 	=> $hostname,
-		]);
-
+		
 		return $this->operation->request('POST', $endpoint, [
 			'json' => [
 				'name'     	 => $name,
